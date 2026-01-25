@@ -61,8 +61,6 @@ Essas funções não tomam decisões, apenas medem o estado.
 '''
 
 
-''
-
 def estado_terminal(estado):
     for processo in estado.lista_processos:
         if processo.estado != "concluido":
