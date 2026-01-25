@@ -22,6 +22,15 @@ class Processo:
 
 'método de acessos se necessário'
 
+def tempo_atual(self, novo_tempo):
+        if novo_tempo < 0:
+            print("Erro: Tempo não pode ser negativo.")
+        elif novo_tempo > self.tempo_base:
+            print("Erro: Tempo atual excede o tempo base.")
+        else:
+            self._tempo_atual = novo_tempo
+
+
 class Maquina:
     #construtor
     def __init__(self,id,estado,tempo_restante=0):       
