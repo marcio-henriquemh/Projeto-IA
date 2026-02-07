@@ -10,6 +10,10 @@ LIMITE_PROFUNDIDADE = 3  # Horizonte diplomático
 ALIADOS = "ALIADOS"
 EIXO = "EIXO"
 
+
+
+
+
 # ETAPA 4 — Função Utilidade (atualizada)
 def utilidade(estado, perspectiva="NEUTRA"):
     """
