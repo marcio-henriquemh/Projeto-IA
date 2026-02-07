@@ -1,7 +1,5 @@
 
-'''
-Docstring para MINIMAX
-'''
+
 class Estrutura_PAIS:
     """
     Representa um país no grafo de relações.
@@ -17,4 +15,3 @@ class Estrutura_PAIS:
     
     def __repr__(self):
         return f"PAIS({self.nome_pais})"
-
