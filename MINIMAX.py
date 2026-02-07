@@ -1,60 +1,24 @@
 
-'''
-Docstring para MINIMAX
-'''
+from classe_RELACOES import Estrutura_RELACAO
+from classe_PAIS import Estrutura_PAIS
+from classe_GRAFO import Estrutura_GRAFO
 
-class Estrutura_PAIS:
-
-    """
-    Representa um país no grafo de relações.
-
-    Atributos:
-        nome_pais (str): O nome do país.
-    """
-    def __init__(self, nome_pais):
-        self.nome_pais=nome_pais
-
-class Estrutura_RELACAO:
-
-    '''''
-    Representa uma relação entre dois países (aresta no grafo).
-
-    Atributos:
-        pais1 (str/Estrutura_PAIS): O primeiro país da relação.
-        pais2 (str/Estrutura_PAIS): O segundo país da relação.
-        sinal_peso (int): O peso/sinal da relação (ex: +1 para aliado, -1 para inimigo)
-    '''
-
-
-    def __init__(self,pais1,pais2,sinal_peso):
-        self.pais1=pais1
-        self.pais2=pais2
-        self.sinal_peso=sinal_peso
-
-
-
-class Estrutura_GRAFO:
-
-    '''
-    Docstring para Estrutura_GRAFO
-
-    """
-    Representa o grafo completo das relações entre países para o algoritmo Minimax.
-
-    Atributos:
-        lista_relacoes (list[Estrutura_RELACAO]): Lista de objetos de relação (arestas).
-    """
-    '''
-    def __init__(self, Lista_relacoes):
-        self.lista_relacoes=Lista_relacoes
+if __name__ == "__main__":
+    # 1. Criar objetos PAIS
+    p1 = Estrutura_PAIS("Brasil") # Usar o nome da CLASSE
+    p2 = Estrutura_PAIS("Argentina")
+    p3 = Estrutura_PAIS("Chile")
     
-
-    '''
-
-    Regras do conflito 
-
-    AlianÇA entre ALIADOS- +
-    CONFLITO ENTRE ALIADOS X EIXO=+
-    ALIANCA ALIADO X EIXO=-
-    ALIANCA ENTRE EIXO =-
-    '''
+    # 2. Criar objetos RELACAO
+    rel1 = Estrutura_RELACAO(p1, p2, "+") # Brasil + Argentina
+    rel2 = Estrutura_RELACAO(p2, p3, "-") # Argentina - Chile
+    
+    # 3. Criar o GRAFO com as relações
+    lista_de_relacoes = [rel1, rel2]
+    meu_grafo = Estrutura_GRAFO(lista_de_relacoes)
+    
+    # 4. Testar a saída
+    print("Teste Inicializado...")
+    # Se Estrutura_GRAFO não tiver o método exibir_grafo, isso dará AttributeError
+    # meu_grafo.exibir_grafo() 
+    print("Relações criadas com sucesso.")
