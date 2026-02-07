@@ -10,70 +10,6 @@ LIMITE_PROFUNDIDADE = 3  # Horizonte diplomático
 ALIADOS = "ALIADOS"
 EIXO = "EIXO"
 
-# ETAPA 5 — Teste de Estado Terminal
-def estado_terminal(estado):
-    """Verifica se o estado é terminal"""
-    return estado.profundidade >= LIMITE_PROFUNDIDADE
-
-# ETAPA 6 — Função de alteração do peso
-def aplicar_acao(relacao, jogador):
-    """
-    Aplica uma ação diplomática alterando o peso de uma relação
-    
-    Args:
-        relacao: Objeto Estrutura_RELACAO
-        jogador: "ALIADOS" ou "EIXO"
-    """
-    if jogador == ALIADOS:
-        if relacao.sinal_peso >= 0:
-            relacao.sinal_peso += 1   # fortalece aliança
-        else:
-            relacao.sinal_peso -= 1   # aumenta conflito (mais negativo)
-    else:  # EIXO
-        if relacao.sinal_peso >= 0:
-            relacao.sinal_peso -= 1   # enfraquece aliança
-        else:
-            relacao.sinal_peso += 1   # reduz conflito (menos negativo)
-
-# ETAPA 7 — Gerar Estados Sucessores
-def gerar_sucessores(estado):
-    """
-    Gera todos os estados sucessores possíveis
-    
-    Args:
-        estado: Estado atual do jogo
-        
-    Returns:
-        list: Lista de estados sucessores
-    """
-    lista_sucessores = []
-    
-    # Para cada relação no grafo
-    for i in range(len(estado.grafo.lista_relacoes)):
-        # Cria uma cópia profunda do estado
-        novo_estado = estado.copiar()
-        
-        # Obtém a relação específica
-        rel = novo_estado.grafo.lista_relacoes[i]
-        
-        # Aplica a ação do jogador atual
-        aplicar_acao(rel, estado.jogador_atual)
-        
-        # Determina próximo jogador
-        if estado.jogador_atual == ALIADOS:
-            proximo_jogador = EIXO
-        else:
-            proximo_jogador = ALIADOS
-        
-        # Atualiza o estado
-        novo_estado.jogador_atual = proximo_jogador
-        novo_estado.profundidade = estado.profundidade + 1
-        
-        # Adiciona à lista
-        lista_sucessores.append(novo_estado)
-    
-    return lista_sucessores
-
 # ETAPA 4 — Função Utilidade (atualizada)
 def utilidade(estado, perspectiva="NEUTRA"):
     """
@@ -149,6 +85,72 @@ def utilidade(estado, perspectiva="NEUTRA"):
     else:  # NEUTRA - diferença entre os dois
         return pontuacao_aliados - pontuacao_eixo
     
+
+
+
+# ETAPA 5 — Teste de Estado Terminal
+def estado_terminal(estado):
+    """Verifica se o estado é terminal"""
+    return estado.profundidade >= LIMITE_PROFUNDIDADE
+
+# ETAPA 6 — Função de alteração do peso
+def aplicar_acao(relacao, jogador):
+    """
+    Aplica uma ação diplomática alterando o peso de uma relação
+    
+    Args:
+        relacao: Objeto Estrutura_RELACAO
+        jogador: "ALIADOS" ou "EIXO"
+    """
+    if jogador == ALIADOS:
+        if relacao.sinal_peso >= 0:
+            relacao.sinal_peso += 1   # fortalece aliança
+        else:
+            relacao.sinal_peso -= 1   # aumenta conflito (mais negativo)
+    else:  # EIXO
+        if relacao.sinal_peso >= 0:
+            relacao.sinal_peso -= 1   # enfraquece aliança
+        else:
+            relacao.sinal_peso += 1   # reduz conflito (menos negativo)
+
+# ETAPA 7 — Gerar Estados Sucessores
+def gerar_sucessores(estado):
+    """
+    Gera todos os estados sucessores possíveis
+    
+    Args:
+        estado: Estado atual do jogo
+        
+    Returns:
+        list: Lista de estados sucessores
+    """
+    lista_sucessores = []
+    
+    # Para cada relação no grafo
+    for i in range(len(estado.grafo.lista_relacoes)):
+        # Cria uma cópia profunda do estado
+        novo_estado = estado.copiar()
+        
+        # Obtém a relação específica
+        rel = novo_estado.grafo.lista_relacoes[i]
+        
+        # Aplica a ação do jogador atual
+        aplicar_acao(rel, estado.jogador_atual)
+        
+        # Determina próximo jogador
+        if estado.jogador_atual == ALIADOS:
+            proximo_jogador = EIXO
+        else:
+            proximo_jogador = ALIADOS
+        
+        # Atualiza o estado
+        novo_estado.jogador_atual = proximo_jogador
+        novo_estado.profundidade = estado.profundidade + 1
+        
+        # Adiciona à lista
+        lista_sucessores.append(novo_estado)
+    
+    return lista_sucessores
 
 
 # ETAPA 8 — Algoritmo MINIMAX
