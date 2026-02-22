@@ -1,38 +1,182 @@
-# Parte 1 — Modelagem das Estruturas do Sistema
+# ♟️ Minimax em Grafos com Sinais  
+## Simulação Estrutural de Conflito Geopolítico (EUA vs URSS)
 
-Este módulo corresponde à **Parte 1 do projeto** *Diplomacia da Segunda Guerra — Algoritmo Minimax*.
+Este projeto modela um conflito estratégico entre duas superpotências utilizando:
 
-O objetivo desta etapa é **modelar corretamente as entidades fundamentais do sistema**, servindo como base para todas as etapas seguintes do algoritmo de busca competitiva e análise de grafos.
+- Teoria dos Jogos
+- Grafos com Sinais
+- Algoritmo Minimax
+- Heurística Estrutural
 
----
-
-## 🎯 Objetivo da Parte 1
-
-Definir, de forma clara e consistente, as estruturas que representam o cenário geopolítico:
-
-- Países e seus respectivos blocos ideológicos.
-- Relações diplomáticas (arestas do grafo).
-- O estado global do jogo (nós da árvore de busca).
-
-Nenhuma lógica de decisão de IA é implementada nesta fase inicial, apenas o esqueleto dos dados.
+O objetivo é demonstrar como Inteligência Artificial pode modelar decisões adversariais em um sistema polarizado.
 
 ---
 
-## 🧩 Entidades Modeladas
+# 🎯 Objetivo
 
-### 1️⃣ Estrutura de Relação
+Simular uma disputa territorial entre:
 
-Representa o vínculo diplomático entre dois países. É o componente que sofre alteração durante as jogadas dos agentes.
+- 🇺🇸 EUA (MAX)
+- 🇷🇺 URSS (MIN)
 
-Cada relação possui:
+Ambos disputam influência sobre um território representado por uma grade 3×3.
 
-- `pais1`: Primeiro país da relação.
-- `pais2`: Segundo país da relação.
-- `sinal_peso`: Valor numérico da relação (positivo para aliança, negativo para conflito).
+Cada decisão é tomada assumindo que o adversário responderá da pior forma possível (modelo adversarial clássico).
 
-```python
-class Estrutura_RELACAO:
-    def __init__(self, pais1, pais2, sinal_peso):
-        self.pais1 = pais1
-        self.pais2 = pais2
-        self.sinal_peso = sinal_peso
+---
+
+# 🧠 Fundamentação Teórica
+
+## 1️⃣ Jogo de Soma Zero
+
+O ganho de um jogador representa a perda do outro:
+
+U(EUA) = -U(URSS)
+
+---
+
+## 2️⃣ Representação como Grafo com Sinais
+
+O território é modelado como:
+
+G = (V, A, σ)
+
+Onde:
+
+- V = regiões (vértices)
+- A = adjacências ortogonais
+- σ(i,j) ∈ {+1, -1}
+
+Definição de sinal:
+
+- +1 → mesma potência (cooperação estrutural)
+- -1 → potências rivais (conflito estrutural)
+
+Isso permite medir:
+
+- Coesão interna
+- Instabilidade estrutural
+- Polarização do sistema
+
+---
+
+## 3️⃣ Algoritmo Minimax
+
+O algoritmo:
+
+- Maximiza o valor estrutural para EUA
+- Minimiza para URSS
+- Avalia estados, não transições
+- Assume resposta ótima do adversário
+
+Não há soma acumulada de custos.
+
+---
+
+# 🗺️ Modelagem do Território
+
+Cada estado é representado por:
+
+T ∈ {E, U, .}^{3×3}
+
+Onde:
+
+- E → Influência EUA
+- U → Influência URSS
+- . → Região neutra
+
+Estado do jogo:
+
+s = (T, jogador_atual)
+
+---
+
+# ⚙️ Regras do Jogo
+
+## 1️⃣ Expansão
+
+O jogador pode ocupar uma região neutra.
+
+---
+
+## 2️⃣ Mudança de Regime
+
+Uma região inimiga pode ser capturada se:
+
+Possui ≥ 2 vizinhos controlados pelo jogador atual.
+
+Interpretação:
+
+- Pressão estrutural local
+- Instabilidade ideológica
+- Cercamento estratégico
+
+---
+
+# 📊 Função de Avaliação
+
+A heurística combina:
+
+### ✔ Controle Territorial
+C(s) = |E| - |U|
+
+### ✔ Centralidade Estratégica
+Região central possui peso maior.
+
+### ✔ Conectividade Estrutural
+Vértices com mais aliados adjacentes têm maior valor.
+
+### ✔ Penalização por Vulnerabilidade
+Regiões cercadas são penalizadas.
+
+Função final:
+
+U(s) = Território + Conectividade + Centralidade - Vulnerabilidade
+
+---
+
+# 🔁 Melhorias Implementadas
+
+## ✔ Quebra de Simetria
+
+- Ordenação estrutural de sucessores
+- Priorização por conectividade
+- Desempate não determinístico controlado
+
+Evita repetição mecânica de jogadas.
+
+---
+
+## ✔ Heurística Estrutural Refinada
+
+Agora considera:
+
+- Potencial local
+- Vulnerabilidade topológica
+- Valor posicional
+
+---
+
+# 📂 Estrutura do Projeto
+
+projeto/
+ ├── classe_ARESTAS.py  
+ ├── classe_ESTADO.py  
+ ├── classe_JOGO_TERRITORIAL.py  
+ ├── classe_MINIMAX.py  
+ ├── MINIMAX.py  
+ └── README.md  
+
+---
+
+# ▶️ Como Executar
+
+1️⃣ Clone o repositório:
+
+```bash
+git clone https://github.com/marcio-henriquemh/Projeto-IA.git
+'''
+
+
+cd Projeto-IA
+python MINIMAX.py
