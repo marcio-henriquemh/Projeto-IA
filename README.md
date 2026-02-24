@@ -179,7 +179,7 @@ projeto/
 
 # Referências usadas
 * [1] SOMBRA, J. V. F.; ANDRADE, R. C.; CAMPELO NETO, M. B. Desigualdades válidas para o problema do caminho positivo mínimo em digrafos de sinais. Fortaleza: UFC, 2025.
-* Aulas da Disciplina de Fundamentos de IA- Professor: Hendrik Macedo
+* [2] Aulas da Disciplina de Fundamentos de IA- Professor: Hendrik Macedo
   
 # ▶️ Como Executar
 
