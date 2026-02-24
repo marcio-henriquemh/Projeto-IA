@@ -177,20 +177,17 @@ projeto/
 
 ---
 
+# Referências usadas
+* [1] SOMBRA, J. V. F.; ANDRADE, R. C.; CAMPELO NETO, M. B. Desigualdades válidas para o problema do caminho positivo mínimo em digrafos de sinais. Fortaleza: UFC, 2025.
+* Aulas da Disciplina de Fundamentos de IA- Professor: Hendrik Macedo
+  
 # ▶️ Como Executar
 
 1️⃣ Clone o repositório:
 
 ```bash
 git clone https://github.com/marcio-henriquemh/Projeto-IA.git
-'''
-
-
 cd Projeto-IA
 python MINIMAX.py
 
 
-
-
-[^1]: Autor, A. (2023). *Título do Artigo*. Revista.
-[^2]: [Link para o documento](https://url.com)
