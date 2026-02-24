@@ -20,7 +20,7 @@ class Estado:
     
     
     def mostrar(self):
-        print("Mapa de Influência:")
+        print("Mapa de Influencia:")
         for linha in self.tabuleiro:
             print(linha)
         print()
