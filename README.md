@@ -2,7 +2,7 @@
 Aqui está a equipe principal:
 
 **Equipe de Desenvolvimento**
-- Marcos Vinicius
+- Marcos vinicius da silva santos
 - Marcio Henrique Matos De Freitas
 
 # ♟️ Minimax em Grafos com Sinais  
