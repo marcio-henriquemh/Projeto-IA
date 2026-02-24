@@ -11,7 +11,7 @@ def main():
     rodada = 1
     while not jogo.terminal(estado):
 
-        print("Rodada", rodada, "| Superpotência:", estado.jogador)
+        print("Rodada", rodada, "| Superpotencia:", estado.jogador)
         estado.mostrar()
 
         melhor = minimax.melhor_jogada(estado)
@@ -19,14 +19,14 @@ def main():
         if melhor is None:
             break
 
-        print("→ Jogada escolhida:", melhor.tipo)
+        print("-> Jogada escolhida:", melhor.tipo)
 
         estado = melhor.estado_destino
         rodada += 1
 
     print("Resultado final da disputa:")
     estado.mostrar()
-    print("Equilíbrio geopolítico:", jogo.avaliar(estado))
+    print("Equilibrio geopolitico:", jogo.avaliar(estado))
 
 
 if __name__ == "__main__":
