@@ -1,6 +1,14 @@
 # ♟️ Minimax em Grafos com Sinais  
 ## Simulação Estrutural de Conflito Geopolítico (EUA vs URSS)
 
+# Projeto Disciplina de Fundamentos de Inteligência Artificial
+Aqui está a equipe principal:
+
+**Equipe de Desenvolvimento**
+- Marcos Vinicius
+- Marcio Henrique Matos De Freitas
+
+
 Este projeto modela um conflito estratégico entre duas superpotências utilizando:
 
 - Teoria dos Jogos
@@ -180,3 +188,9 @@ git clone https://github.com/marcio-henriquemh/Projeto-IA.git
 
 cd Projeto-IA
 python MINIMAX.py
+
+
+
+
+[^1]: Autor, A. (2023). *Título do Artigo*. Revista.
+[^2]: [Link para o documento](https://url.com)
