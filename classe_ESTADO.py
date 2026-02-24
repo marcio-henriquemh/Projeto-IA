@@ -1,7 +1,7 @@
 class Estado:
     def __init__(self, tabuleiro=None, jogador="EUA"):
         if tabuleiro is None:
-            self.tabuleiro = [["." for _ in range(3)] for _ in range(3)]
+            self.tabuleiro = [["." for _ in range(5)] for _ in range(5)]
         else:
             self.tabuleiro = tabuleiro
 
@@ -17,6 +17,8 @@ class Estado:
     def simbolo(self):
         return "E" if self.jogador == "EUA" else "U"
 
+    
+    
     def mostrar(self):
         print("Mapa de Influência:")
         for linha in self.tabuleiro:
