@@ -1,12 +1,12 @@
-# ♟️ Minimax em Grafos com Sinais  
-## Simulação Estrutural de Conflito Geopolítico (EUA vs URSS)
-
 # Projeto Disciplina de Fundamentos de Inteligência Artificial
 Aqui está a equipe principal:
 
 **Equipe de Desenvolvimento**
 - Marcos Vinicius
 - Marcio Henrique Matos De Freitas
+
+# ♟️ Minimax em Grafos com Sinais  
+## Simulação Estrutural de Conflito Geopolítico (EUA vs URSS)
 
 
 Este projeto modela um conflito estratégico entre duas superpotências utilizando:
